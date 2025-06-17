@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lion's Rooms n Apartments - Browse our complete selection of rooms and apartments. Single rooms, double rooms, twin rooms, triple rooms and apartments available.">
+    <meta name="keywords" content="rooms, apartments, single room, double room, twin room, triple room, accommodation, Lion's Rooms">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Rooms & Apartments - Lion's Rooms n Apartments">
+    <meta property="og:description" content="Browse our complete selection of comfortable rooms and apartments">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/rooms/room-overview.jpg">
+    
+    <title>Rooms & Apartments - Lion's Rooms n Apartments</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'deep-navy': '#1a2a4c',
+                        'creamy-white': '#f4f1ea',
+                        'sandy-beige': '#d4c8b6',
+                        'brushed-gold': '#c8a97e',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body class="font-sans text-deep-navy bg-creamy-white">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full bg-white/95 backdrop-blur-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="logo">
+                <a href="index.html">
+                    <h1 class="text-2xl font-serif font-bold text-deep-navy">Lion's Rooms</h1>
+                </a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <ul class="hidden md:flex space-x-8 text-sm font-medium">
+                <li><a href="index.html" class="hover:text-brushed-gold transition-colors">Home</a></li>
+                <li><a href="rooms.html" class="text-brushed-gold font-semibold">Rooms</a></li>
+                <li><a href="index.html#amenities" class="hover:text-brushed-gold transition-colors">Amenities</a></li>
+                <li><a href="index.html#about" class="hover:text-brushed-gold transition-colors">About Us</a></li>
+            </ul>
+            
+            <!-- Book Button -->
+            <button class="bg-brushed-gold text-white px-6 py-2 rounded font-medium hover:bg-opacity-90 transition-all">
+                BOOK
+            </button>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden" id="mobile-menu-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-6 py-4 space-y-4">
+                <a href="index.html" class="block hover:text-brushed-gold">Home</a>
+                <a href="rooms.html" class="block text-brushed-gold font-semibold">Rooms</a>
+                <a href="index.html#amenities" class="block hover:text-brushed-gold">Amenities</a>
+                <a href="index.html#about" class="block hover:text-brushed-gold">About Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="relative pt-32 pb-20 px-6 bg-gradient-to-r from-deep-navy to-gray-800 text-white">
+        <div class="container mx-auto max-w-7xl text-center">
+            <div class="flex justify-center mb-4">
+                <div class="flex space-x-1">
+                    <span class="text-brushed-gold text-xl">★</span>
+                    <span class="text-brushed-gold text-xl">★</span>
+                    <span class="text-brushed-gold text-xl">★</span>
+                    <span class="text-brushed-gold text-xl">★</span>
+                    <span class="text-brushed-gold text-xl">★</span>
+                </div>
+            </div>
+            <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6">Our Rooms & Apartments</h1>
+            <p class="text-xl md:text-2xl font-light mb-8 max-w-3xl mx-auto">Choose from our selection of comfortable accommodations, from cozy single rooms to spacious apartments</p>
+            
+            <!-- Room Type Counter -->
+            <div class="flex justify-center items-center space-x-8 text-sm">
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-brushed-gold">13</div>
+                    <div class="text-gray-300">Room Options</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-brushed-gold">1-4</div>
+                    <div class="text-gray-300">Guests</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-brushed-gold">8.3</div>
+                    <div class="text-gray-300">Amenities Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-8 px-6 bg-white border-b border-sandy-beige">
+        <div class="container mx-auto max-w-7xl">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div class="flex flex-wrap gap-4">
+                    <button class="filter-btn active px-4 py-2 rounded-full border border-sandy-beige hover:bg-brushed-gold hover:text-white transition-all" data-filter="all">
+                        All Rooms
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-sandy-beige hover:bg-brushed-gold hover:text-white transition-all" data-filter="single">
+                        Single Rooms
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-sandy-beige hover:bg-brushed-gold hover:text-white transition-all" data-filter="double">
+                        Double Rooms
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-sandy-beige hover:bg-brushed-gold hover:text-white transition-all" data-filter="twin">
+                        Twin Rooms
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-sandy-beige hover:bg-brushed-gold hover:text-white transition-all" data-filter="apartment">
+                        Apartments
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-sandy-beige hover:bg-brushed-gold hover:text-white transition-all" data-filter="triple">
+                        Triple Rooms
+                    </button>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-gray-600">Sort by:</span>
+                    <select id="sort-select" class="px-3 py-2 border border-sandy-beige rounded focus:outline-none focus:border-brushed-gold">
+                        <option value="name">Room Name</option>
+                        <option value="capacity">Capacity</option>
+                        <option value="price">Price</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Grid -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-7xl">
+            <div id="rooms-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Single Room B1 -->
+                <div class="room-card group cursor-pointer" data-category="single" data-capacity="1" data-price="65">
+                    <div class="overflow-hidden rounded-lg mb-6">
+                        <img src="assets/images/rooms/single-room-b1.jpg" alt="Single Room B1" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brushed-gold text-white px-3 py-1 rounded-full text-sm font-medium">
+                            B1
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-2xl font-semibold">Single Room B1</h3>
+                        <div class="flex items-center space-x-2 text-brushed-gold font-medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                            <span>1 Single Bed • 1 Guest</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">Comfortable single room with modern amenities, perfect for solo travelers. Features wardrobe, power socket near bed, and access to shared kitchen.</p>
+                        <div class="flex justify-between items-center pt-4">
+                            <span class="text-2xl font-semibold">From €65<span class="text-base font-normal text-gray-600">/night</span></span>
+                            <button class="text-brushed-gold font-medium hover:underline book-room-btn" data-room="Single Room B1">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Room Y4 -->
+                <div class="room-card group cursor-pointer" data-category="single" data-capacity="1" data-price="68">
+                    <div class="overflow-hidden rounded-lg mb-6">
+                        <img src="assets/images/rooms/single-room-y4.jpg" alt="Single Room Y4" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brushed-gold text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Y4
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-2xl font-semibold">Single Room Y4</h3>
+                        <div class="flex items-center space-x-2 text-brushed-gold font-medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                            <span>1 Single Bed • 1 Guest</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">Well-appointed single room with excellent natural light and modern furnishings. Includes all standard amenities and shared facilities access.</p>
+                        <div class="flex justify-between items-center pt-4">
+                            <span class="text-2xl font-semibold">From €68<span class="text-base font-normal text-gray-600">/night</span></span>
+                            <button class="text-brushed-gold font-medium hover:underline book-room-btn" data-room="Single Room Y4">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Room Y1A -->
+                <div class="room-card group cursor-pointer" data-category="single" data-capacity="1" data-price="67">
+                    <div class="overflow-hidden rounded-lg mb-6">
+                        <img src="assets/images/rooms/single-room-y1a.jpg" alt="Single Room Y1A" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brushed-gold text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Y1A
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-2xl font-semibold">Single Room Y1A</h3>
+                        <div class="flex items-center space-x-2 text-brushed-gold font-medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                            <span>1 Single Bed • 1 Guest</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">Cozy single room featuring contemporary design and practical layout. Perfect for business travelers with work area and convenient amenities.</p>
+                        <div class="flex justify-between items-center pt-4">
+                            <span class="text-2xl font-semibold">From €67<span class="text-base font-normal text-gray-600">/night</span></span>
+                            <button class="text-brushed-gold font-medium hover:underline book-room-btn" data-room="Single Room Y1A">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Twin Room Y1B -->
+                <div class="room-card group cursor-pointer" data-category="twin" data-capacity="2" data-price="95">
+                    <div class="overflow-hidden rounded-lg mb-6">
+                        <img src="assets/images/rooms/twin-room-y1b.jpg" alt="Twin Room Y1B" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Y1B
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-2xl font-semibold">Twin Room Y1B</h3>
+                        <div class="flex items-center space-x-2 text-brushed-gold font-medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                            <span>1 Double Bed • 2 Guests</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">Spacious twin room with one comfortable double bed. Ideal for couples or friends traveling together, with ample storage and modern amenities.</p>
+                        <div class="flex justify-between items-center pt-4">
+                            <span class="text-2xl font-semibold">From €95<span class="text-base font-normal text-gray-600">/night</span></span>
+                            <button class="text-brushed-gold font-medium hover:underline book-room-btn" data-room="Twin Room Y1B">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Double Room Y3A -->
+                <div class="room-card group cursor-pointer" data-category="double" data-capacity="2" data-price="98">
+                    <div class="overflow-hidden rounded-lg mb-6">
+                        <img src="assets/images/rooms/double-room-y3a.jpg" alt="Double Room Y3A" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Y3A
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-2xl font-semibold">Double Room Y3A</h3>
+                        <div class="flex items-center space-x-2 text-brushed-gold font-medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                            <span>1 Double Bed • 2 Guests</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">Comfortable double room with queen-size bed and contemporary furnishings. Perfect for couples seeking a relaxing stay with all modern conveniences.</p>
+                        <div class="flex justify-between items-center pt-4">
+                            <span class="text-2xl font-semibold">From €98<span class="text-base font-normal text-gray-600">/night</span></span>
+                            <button class="text-brushed-gold font-medium hover:underline book-room-btn" data-room="Double Room Y3A">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Apartment Y2 -->
+                <div class="room-card group cursor-pointer" data-category="apartment" data-capacity="3" data-price="145">
+                    <div class="overflow-hidden rounded-lg mb-6">
+                        <img src="assets/images/rooms/apartment-y2.jpg" alt="Apartment Y2" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Y2
+                        </div>
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Apartment
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-2xl font-semibold">Apartment Y2</h3>
+                        <div class="flex items-center space-x-2 text-brushed-gold font-medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                            <span>1 Single + 1 Double Bed • 3 Guests</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">Spacious apartment with separate sleeping areas. Features one single bed and one double bed, perfect for small families or groups. Includes kitchenette access.</p>
+                        <div class="flex justify-between items-center pt-4">
+                            <span class="text-2xl font-semibold">From €145<span class="text-base font-normal text-gray-600">/night</span></span>
+                            <button class="text-brushed-gold font-medium hover:underline book-room-btn" data-room="Apartment Y2">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Triple Room -->
+                <div class="room-card group cursor-pointer" data-category="triple" data-capacity="3" data-price="135">
+                    <div class="overflow-hidden rounded-lg mb-6">
+                        <img src="assets/images/rooms/triple-room.jpg" alt="Triple Room" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Triple
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-2xl font-semibold">Triple Room</h3>
+                        <div class="flex items-center space-x-2 text-brushed-gold font-medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                            <span>3 Single Beds • 3 Guests</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">Spacious triple room with three comfortable single beds. Perfect for groups of friends or families, offering privacy and comfort for each guest.</p>
+                        <div class="flex justify-between items-center pt-4">
+                            <span class="text-2xl font-semibold">From €135<span class="text-base font-normal text-gray-600">/night</span></span>
+                            <button class="text-brushed-gold font-medium hover:underline book-room-btn" data-room="Triple Room">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Double or Twin Room Y1B -->
+                <div class="room-card group cursor-pointer" data-category="double" data-capacity="2" data-price="96">
+                    <div class="overflow-hidden rounded-lg mb-6">
+                        <img src="assets/images/rooms/double-twin-y1b.jpg" alt="Double or Twin Room Y1B" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-teal-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Y1B
+                        </div>
+                        <div class="absolute top-4 right-4 bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Flexible
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-2xl font-semibold">Double or Twin Room Y1B</h3>
+                        <div class="flex items-center space-x-2 text-brushed-gold font-medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                            <span>1 Double Bed • 2 Guests</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">Flexible accommodation that can be arranged as either double or twin room based on your preference. Versatile layout perfect for various travel needs.</p>
+                        <div class="flex justify-between items-center pt-4">
+                            <span class="text-2xl font-semibold">From €96<span class="text-base font-normal text-gray-600">/night</span></span>
+                            <button class="text-brushed-gold font-medium hover:underline book-room-btn" data-room="Double or Twin Room Y1B">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Twin Room Y3A -->
+                <div class="room-card group cursor-pointer" data-category="twin" data-capacity="2" data-price="97">
+                    <div class="overflow-hidden rounded-lg mb-6">
+                        <img src="assets/images/rooms/twin-room-y3a.jpg" alt="Twin Room Y3A" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Y3A
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-2xl font-semibold">Twin Room Y3A</h3>
+                        <div class="flex items-center space-x-2 text-brushed-gold font-medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                            <span>1 Double Bed • 2 Guests</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">Well-appointed twin room with modern amenities and comfortable furnishings. Great for business travelers or friends sharing accommodation.</p>
+                        <div class="flex justify-between items-center pt-4">
+                            <span class="text-2xl font-semibold">From €97<span class="text-base font-normal text-gray-600">/night</span></span>
+                            <button class="text-brushed-gold font-medium hover:underline book-room-btn" data-room="Twin Room Y3A">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Double Room -->
+                <div class="room-card group cursor-pointer" data-category="double" data-capacity="2" data-price="89">
+                    <div class="overflow-hidden rounded-lg mb-6">
+                        <img src="assets/images/rooms/double-room.jpg" alt="Double Room" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Standard
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-2xl font-semibold">Double Room</h3>
+                        <div class="flex items-center space-x-2 text-brushed-gold font-medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                            <span>1 Double Bed • 2 Guests</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">Classic double room with comfortable queen-size bed and standard amenities. Excellent value accommodation with all essential features for a pleasant stay.</p>
+                        <div class="flex justify-between items-center pt-4">
+                            <span class="text-2xl font-semibold">From €89<span class="text-base font-normal text-gray-600">/night</span></span>
+                            <button class="text-brushed-gold font-medium hover:underline book-room-btn" data-room="Double Room">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Double Room B4 -->
+                <div class="room-card group cursor-pointer" data-category="double" data-capacity="2" data-price="92">
+                    <div class="overflow-hidden rounded-lg mb-6">
+                        <img src="assets/images/rooms/double-room-b4.jpg" alt="Double Room B4" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            B4
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-2xl font-semibold">Double Room B4</h3>
+                        <div class="flex items-center space-x-2 text-brushed-gold font-medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                            <span>1 Double Bed • 2 Guests</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">Comfortable double room in the B building with modern amenities and thoughtful design. Features quality furnishings and convenient access to shared facilities.</p>
+                        <div class="flex justify-between items-center pt-4">
+                            <span class="text-2xl font-semibold">From €92<span class="text-base font-normal text-gray-600">/night</span></span>
+                            <button class="text-brushed-gold font-medium hover:underline book-room-btn" data-room="Double Room B4">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Twin Room -->
+                <div class="room-card group cursor-pointer" data-category="twin" data-capacity="2" data-price="94">
+                    <div class="overflow-hidden rounded-lg mb-6">
+                        <img src="assets/images/rooms/twin-room.jpg" alt="Twin Room" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Standard
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-2xl font-semibold">Twin Room</h3>
+                        <div class="flex items-center space-x-2 text-brushed-gold font-medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                            <span>1 Double Bed • 2 Guests</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">Standard twin room with flexible sleeping arrangements and modern amenities. Perfect for travelers seeking comfort and convenience at great value.</p>
+                        <div class="flex justify-between items-center pt-4">
+                            <span class="text-2xl font-semibold">From €94<span class="text-base font-normal text-gray-600">/night</span></span>
+                            <button class="text-brushed-gold font-medium hover:underline book-room-btn" data-room="Twin Room">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Double Room B7 -->
+                <div class="room-card group cursor-pointer" data-category="double" data-capacity="2" data-price="93">
+                    <div class="overflow-hidden rounded-lg mb-6">
+                        <img src="assets/images/rooms/double-room-b7.jpg" alt="Double Room B7" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            B7
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-2xl font-semibold">Double Room B7</h3>
+                        <div class="flex items-center space-x-2 text-brushed-gold font-medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                            <span>1 Double Bed • 2 Guests</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">Well-positioned double room in the B building with comfortable accommodations and convenient amenities. Excellent choice for couples or business travelers.</p>
+                        <div class="flex justify-between items-center pt-4">
+                            <span class="text-2xl font-semibold">From €93<span class="text-base font-normal text-gray-600">/night</span></span>
+                            <button class="text-brushed-gold font-medium hover:underline book-room-btn" data-room="Double Room B7">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Double Room B8 -->
+                <div class="room-card group cursor-pointer" data-category="double" data-capacity="2" data-price="91">
+                    <div class="overflow-hidden rounded-lg mb-6">
+                        <img src="assets/images/rooms/double-room-b8.jpg" alt="Double Room B8" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            B8
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-2xl font-semibold">Double Room B8</h3>
+                        <div class="flex items-center space-x-2 text-brushed-gold font-medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                            <span>1 Double Bed • 2 Guests</span>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">Comfortable double room with modern amenities and quality furnishings. Perfect for guests seeking reliable accommodation with excellent value for money.</p>
+                        <div class="flex justify-between items-center pt-4">
+                            <span class="text-2xl font-semibold">From €91<span class="text-base font-normal text-gray-600">/night</span></span>
+                            <button class="text-brushed-gold font-medium hover:underline book-room-btn" data-room="Double Room B8">Book Now →</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- No Results Message -->
+            <div id="no-results" class="hidden text-center py-20">
+                <div class="text-gray-400 mb-4">
+                    <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-600 mb-2">No rooms found</h3>
+                <p class="text-gray-500">Try adjusting your filter criteria to see more results.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-20 px-6 bg-deep-navy text-white">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Ready to Book Your Stay?</h2>
+            <p class="text-xl mb-8 opacity-90">Experience comfort and convenience at Lion's Rooms n Apartments</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-brushed-gold text-white px-8 py-3 text-lg font-medium rounded hover:bg-opacity-90 transition-all">
+                    Check Availability
+                </button>
+                <a href="index.html#amenities" class="border border-white text-white px-8 py-3 text-lg font-medium rounded hover:bg-white hover:text-deep-navy transition-all">
+                    View Amenities
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-creamy-white">        
+        <!-- Main Footer -->
+        <div class="py-12 px-6">
+            <div class="container mx-auto max-w-7xl">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Hotel Info -->
+                    <div class="md:col-span-2">
+                        <h4 class="font-serif text-2xl font-bold mb-4">Lion's Rooms n Apartments</h4>
+                        <p class="text-gray-600 mb-4">Quality Accommodation • Great Amenities</p>
+                        <address class="text-gray-600 not-italic">
+                            Your Address Here<br>
+                            City, Country<br>
+                            Postal Code
+                        </address>
+                        <div class="mt-4 space-y-1">
+                            <p class="text-gray-600">+XX XXX XXX XXXX</p>
+                            <p class="text-gray-600">info@lionsrooms.com</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div>
+                        <h5 class="font-semibold mb-4">Quick Links</h5>
+                        <ul class="space-y-2 text-gray-600">
+                            <li><a href="rooms.html" class="hover:text-brushed-gold transition-colors">All Rooms</a></li>
+                            <li><a href="index.html#amenities" class="hover:text-brushed-gold transition-colors">Amenities</a></li>
+                            <li><a href="#" class="hover:text-brushed-gold transition-colors">Shared Kitchen</a></li>
+                            <li><a href="#" class="hover:text-brushed-gold transition-colors">Reception Services</a></li>
+                            <li><a href="#" class="hover:text-brushed-gold transition-colors">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Contact -->
+                    <div>
+                        <h5 class="font-semibold mb-4">Contact</h5>
+                        <div class="space-y-3">
+                            <p class="text-sm text-gray-600">Languages spoken:</p>
+                            <div class="flex space-x-2">
+                                <span class="bg-sandy-beige text-deep-navy px-3 py-1 rounded-full text-sm">German</span>
+                                <span class="bg-sandy-beige text-deep-navy px-3 py-1 rounded-full text-sm">English</span>
+                            </div>
+                        </div>
+                        <button class="w-full mt-6 bg-brushed-gold text-white px-6 py-3 rounded font-medium hover:bg-opacity-90 transition-all">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="py-6 px-6 border-t border-sandy-beige">
+            <div class="container mx-auto max-w-7xl flex flex-col sm:flex-row justify-between items-center text-sm text-gray-600">
+                <p>&copy; 2024 Lion's Rooms n Apartments. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <a href="#" class="hover:text-brushed-gold transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-brushed-gold transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/rooms.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
