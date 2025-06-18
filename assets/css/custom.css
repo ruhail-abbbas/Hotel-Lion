@@ -38,10 +38,13 @@ html {
 /* Hover effects for room cards */
 .room-card {
     transition: transform 0.3s ease;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .room-card:hover {
     transform: translateY(-8px);
+    color: var(--brushed-gold);
 }
 
 /* Image hover effects */
