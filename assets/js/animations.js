@@ -147,6 +147,15 @@ class ModernAnimations {
     }
     
     init3DTiltCards() {
+        // Check if device is mobile
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+        
+        // Skip 3D tilt effects on mobile devices
+        if (isMobile) {
+            console.log('3D tilt effects disabled on mobile device');
+            return;
+        }
+        
         const tiltCards = document.querySelectorAll('.room-card, .experience-card');
         
         tiltCards.forEach(card => {

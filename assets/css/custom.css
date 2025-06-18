@@ -153,13 +153,22 @@ html {
     transform: translateY(calc(var(--scroll-y, 0) * 0.8));
 }
 
-/* Tilt effect on hover */
+/* Tilt effect on hover - desktop only */
 .tilt-hover {
     transition: transform 0.3s ease;
 }
 
-.tilt-hover:hover {
-    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateZ(20px);
+@media (min-width: 769px) and (hover: hover) {
+    .tilt-hover:hover {
+        transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateZ(20px);
+    }
+}
+
+/* Disable tilt effects on mobile */
+@media (max-width: 768px) {
+    .tilt-hover:hover {
+        transform: none !important;
+    }
 }
 
 /* Text typewriter effect */

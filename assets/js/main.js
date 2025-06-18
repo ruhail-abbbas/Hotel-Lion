@@ -274,18 +274,23 @@ function updateParallaxEffect() {
 
 // Booking button functionality
 function initBookingButtons() {
-    // Find booking buttons by class and text content
-    const allButtons = document.querySelectorAll('button[class*="bg-brushed-gold"], .book-room-btn');
-    const bookingButtons = Array.from(document.querySelectorAll('button')).filter(btn => 
-        btn.textContent.includes('BOOK') || btn.textContent.includes('Book') || btn.classList.contains('book-room-btn')
-    );
+    // Find booking buttons by specific text content only, avoid class-based selection
+    const bookingButtons = Array.from(document.querySelectorAll('button')).filter(btn => {
+        const text = btn.textContent.trim();
+        return (text.includes('BOOK') || text.includes('Book')) && 
+               !btn.classList.contains('filter-btn') && // Exclude filter buttons
+               !btn.closest('nav'); // Exclude navigation buttons
+    });
+    
+    // Also include explicit booking button classes
+    const explicitBookingBtns = document.querySelectorAll('.book-room-btn, .magnetic-btn');
     
     // Combine both collections
-    const combinedButtons = [...new Set([...allButtons, ...bookingButtons])];
+    const combinedButtons = [...new Set([...bookingButtons, ...explicitBookingBtns])];
     
     combinedButtons.forEach(button => {
-        // Skip navigation buttons
-        if (button.closest('nav')) return;
+        // Skip filter buttons and navigation buttons
+        if (button.classList.contains('filter-btn') || button.closest('nav')) return;
         
         button.addEventListener('click', (e) => {
             e.preventDefault();
@@ -311,34 +316,52 @@ function initBookingButtons() {
 }
 
 // Room card interactions
-document.querySelectorAll('.room-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-8px)';
-        card.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.1)';
-    });
+function initRoomCardInteractions() {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
     
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0)';
-        card.style.boxShadow = 'none';
+    document.querySelectorAll('.room-card').forEach(card => {
+        if (!isMobile) {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px)';
+                card.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.1)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = 'none';
+            });
+        }
     });
-});
+}
+
+// Initialize room card interactions
+initRoomCardInteractions();
 
 // Experience card interactions
-document.querySelectorAll('.experience-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        const img = card.querySelector('img');
-        if (img) {
-            img.style.transform = 'scale(1.05)';
-        }
-    });
+function initExperienceCardInteractions() {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
     
-    card.addEventListener('mouseleave', () => {
-        const img = card.querySelector('img');
-        if (img) {
-            img.style.transform = 'scale(1)';
+    document.querySelectorAll('.experience-card').forEach(card => {
+        if (!isMobile) {
+            card.addEventListener('mouseenter', () => {
+                const img = card.querySelector('img');
+                if (img) {
+                    img.style.transform = 'scale(1.05)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                const img = card.querySelector('img');
+                if (img) {
+                    img.style.transform = 'scale(1)';
+                }
+            });
         }
     });
-});
+}
+
+// Initialize experience card interactions
+initExperienceCardInteractions();
 
 // Accessibility improvements
 document.addEventListener('keydown', (e) => {
