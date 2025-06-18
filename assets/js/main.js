@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling for anchor links
     initSmoothScrolling();
     
+    // Booking buttons
+    initBookingButtons();
+    
     // Form handling
     initForms();
     
@@ -263,41 +266,49 @@ function initPerformanceOptimizations() {
     });
 }
 
-// Parallax effect for hero section
+// Parallax effect for hero section - disabled to prevent conflicts with Ken Burns effect
 function updateParallaxEffect() {
-    const scrolled = window.pageYOffset;
-    const heroSection = document.querySelector('#home');
-    const heroImage = heroSection.querySelector('img');
-    
-    if (heroImage && scrolled < window.innerHeight) {
-        const speed = 0.5;
-        heroImage.style.transform = `translateY(${scrolled * speed}px)`;
-    }
+    // Disabled to prevent conflicts with CSS Ken Burns animation
+    return;
 }
 
 // Booking button functionality
-document.addEventListener('click', (e) => {
-    if (e.target.textContent.includes('BOOK') || e.target.textContent.includes('Book')) {
-        e.preventDefault();
+function initBookingButtons() {
+    // Find booking buttons by class and text content
+    const allButtons = document.querySelectorAll('button[class*="bg-brushed-gold"], .book-room-btn');
+    const bookingButtons = Array.from(document.querySelectorAll('button')).filter(btn => 
+        btn.textContent.includes('BOOK') || btn.textContent.includes('Book') || btn.classList.contains('book-room-btn')
+    );
+    
+    // Combine both collections
+    const combinedButtons = [...new Set([...allButtons, ...bookingButtons])];
+    
+    combinedButtons.forEach(button => {
+        // Skip navigation buttons
+        if (button.closest('nav')) return;
         
-        // Simulate booking process
-        const button = e.target;
-        const originalText = button.textContent;
-        
-        button.textContent = 'Loading...';
-        button.disabled = true;
-        
-        setTimeout(() => {
-            // In a real application, this would redirect to booking system
-            showNotification('Redirecting to booking system...', 'info');
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Simulate booking process
+            const originalText = button.textContent;
+            
+            button.textContent = 'Loading...';
+            button.disabled = true;
             
             setTimeout(() => {
-                button.textContent = originalText;
-                button.disabled = false;
-            }, 2000);
-        }, 1000);
-    }
-});
+                // In a real application, this would redirect to booking system
+                showNotification('Redirecting to booking system...', 'info');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                }, 2000);
+            }, 1000);
+        });
+    });
+}
 
 // Room card interactions
 document.querySelectorAll('.room-card').forEach(card => {

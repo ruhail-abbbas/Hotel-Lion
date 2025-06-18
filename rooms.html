@@ -21,6 +21,10 @@
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -87,7 +91,7 @@
 
     <!-- Page Header -->
     <section class="relative pt-32 pb-20 px-6 bg-gradient-to-r from-deep-navy to-gray-800 text-white">
-        <div class="container mx-auto max-w-7xl text-center">
+        <div class="container mx-auto max-w-7xl text-center" data-aos="fade-up" data-aos-duration="1000">
             <div class="flex justify-center mb-4">
                 <div class="flex space-x-1">
                     <span class="text-brushed-gold text-xl">★</span>
@@ -97,20 +101,20 @@
                     <span class="text-brushed-gold text-xl">★</span>
                 </div>
             </div>
-            <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6">Our Rooms & Apartments</h1>
-            <p class="text-xl md:text-2xl font-light mb-8 max-w-3xl mx-auto">Choose from our selection of comfortable accommodations, from cozy single rooms to spacious apartments</p>
+            <h1 class="hero-title font-serif text-5xl md:text-7xl font-bold mb-6" data-aos="fade-up" data-aos-delay="200">Our Rooms & Apartments</h1>
+            <p class="text-xl md:text-2xl font-light mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="400">Choose from our selection of comfortable accommodations, from cozy single rooms to spacious apartments</p>
             
             <!-- Room Type Counter -->
-            <div class="flex justify-center items-center space-x-8 text-sm">
-                <div class="text-center">
+            <div class="flex justify-center items-center space-x-8 text-sm" data-aos="zoom-in" data-aos-delay="600">
+                <div class="text-center" data-aos="scale-bounce" data-aos-delay="700">
                     <div class="text-2xl font-bold text-brushed-gold">13</div>
                     <div class="text-gray-300">Room Options</div>
                 </div>
-                <div class="text-center">
+                <div class="text-center" data-aos="scale-bounce" data-aos-delay="800">
                     <div class="text-2xl font-bold text-brushed-gold">1-4</div>
                     <div class="text-gray-300">Guests</div>
                 </div>
-                <div class="text-center">
+                <div class="text-center" data-aos="scale-bounce" data-aos-delay="900">
                     <div class="text-2xl font-bold text-brushed-gold">8.3</div>
                     <div class="text-gray-300">Amenities Rating</div>
                 </div>
@@ -121,7 +125,7 @@
     <!-- Filter Section -->
     <section class="py-8 px-6 bg-white border-b border-sandy-beige">
         <div class="container mx-auto max-w-7xl">
-            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0" data-aos="fade-up" data-aos-delay="200">
                 <div class="flex flex-wrap gap-4">
                     <button class="filter-btn active px-4 py-2 rounded-full border border-sandy-beige hover:bg-brushed-gold hover:text-white transition-all" data-filter="all">
                         All Rooms
@@ -161,9 +165,9 @@
             <div id="rooms-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- Single Room B1 -->
-                <div class="room-card group cursor-pointer" data-category="single" data-capacity="1" data-price="65">
+                <div class="room-card group cursor-pointer tilt-hover" data-category="single" data-capacity="1" data-price="65" data-aos="slide-up" data-aos-delay="200">
                     <div class="overflow-hidden rounded-lg mb-6">
-                        <img src="assets/images/rooms/single-room-b1.jpg" alt="Single Room B1" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/rooms/room2.jpg" alt="Single Room B1" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-4 left-4 bg-brushed-gold text-white px-3 py-1 rounded-full text-sm font-medium">
                             B1
                         </div>
@@ -179,15 +183,15 @@
                         <p class="text-gray-700 leading-relaxed">Comfortable single room with modern amenities, perfect for solo travelers. Features wardrobe, power socket near bed, and access to shared kitchen.</p>
                         <div class="flex justify-between items-center pt-4">
                             <span class="text-2xl font-semibold">From €65<span class="text-base font-normal text-gray-600">/night</span></span>
-                            <button class="text-brushed-gold font-medium hover:underline book-room-btn" data-room="Single Room B1">Book Now →</button>
+                            <button class="magnetic-btn text-brushed-gold font-medium hover:underline book-room-btn" data-room="Single Room B1">Book Now →</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Single Room Y4 -->
-                <div class="room-card group cursor-pointer" data-category="single" data-capacity="1" data-price="68">
+                <div class="room-card group cursor-pointer tilt-hover" data-category="single" data-capacity="1" data-price="68" data-aos="slide-up" data-aos-delay="300">
                     <div class="overflow-hidden rounded-lg mb-6">
-                        <img src="assets/images/rooms/single-room-y4.jpg" alt="Single Room Y4" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/rooms/room1.jpg" alt="Single Room Y4" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-4 left-4 bg-brushed-gold text-white px-3 py-1 rounded-full text-sm font-medium">
                             Y4
                         </div>
@@ -209,9 +213,9 @@
                 </div>
 
                 <!-- Single Room Y1A -->
-                <div class="room-card group cursor-pointer" data-category="single" data-capacity="1" data-price="67">
+                <div class="room-card group cursor-pointer tilt-hover" data-category="single" data-capacity="1" data-price="67" data-aos="slide-up" data-aos-delay="400">
                     <div class="overflow-hidden rounded-lg mb-6">
-                        <img src="assets/images/rooms/single-room-y1a.jpg" alt="Single Room Y1A" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/rooms/room3.jpg" alt="Single Room Y1A" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-4 left-4 bg-brushed-gold text-white px-3 py-1 rounded-full text-sm font-medium">
                             Y1A
                         </div>
@@ -233,9 +237,9 @@
                 </div>
 
                 <!-- Twin Room Y1B -->
-                <div class="room-card group cursor-pointer" data-category="twin" data-capacity="2" data-price="95">
+                <div class="room-card group cursor-pointer tilt-hover" data-category="twin" data-capacity="2" data-price="95" data-aos="slide-up" data-aos-delay="500">
                     <div class="overflow-hidden rounded-lg mb-6">
-                        <img src="assets/images/rooms/twin-room-y1b.jpg" alt="Twin Room Y1B" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/rooms/room1.jpg" alt="Twin Room Y1B" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                             Y1B
                         </div>
@@ -257,9 +261,9 @@
                 </div>
 
                 <!-- Double Room Y3A -->
-                <div class="room-card group cursor-pointer" data-category="double" data-capacity="2" data-price="98">
+                <div class="room-card group cursor-pointer tilt-hover" data-category="double" data-capacity="2" data-price="98" data-aos="slide-up" data-aos-delay="600">
                     <div class="overflow-hidden rounded-lg mb-6">
-                        <img src="assets/images/rooms/double-room-y3a.jpg" alt="Double Room Y3A" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/rooms/room2.jpg" alt="Double Room Y3A" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                             Y3A
                         </div>
@@ -281,9 +285,9 @@
                 </div>
 
                 <!-- Apartment Y2 -->
-                <div class="room-card group cursor-pointer" data-category="apartment" data-capacity="3" data-price="145">
+                <div class="room-card group cursor-pointer tilt-hover" data-category="apartment" data-capacity="3" data-price="145" data-aos="slide-up" data-aos-delay="700">
                     <div class="overflow-hidden rounded-lg mb-6">
-                        <img src="assets/images/rooms/apartment-y2.jpg" alt="Apartment Y2" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/rooms/room3.jpg" alt="Apartment Y2" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-4 left-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                             Y2
                         </div>
@@ -308,9 +312,9 @@
                 </div>
 
                 <!-- Triple Room -->
-                <div class="room-card group cursor-pointer" data-category="triple" data-capacity="3" data-price="135">
+                <div class="room-card group cursor-pointer tilt-hover" data-category="triple" data-capacity="3" data-price="135" data-aos="slide-up" data-aos-delay="800">
                     <div class="overflow-hidden rounded-lg mb-6">
-                        <img src="assets/images/rooms/triple-room.jpg" alt="Triple Room" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/rooms/room1.jpg" alt="Triple Room" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                             Triple
                         </div>
@@ -332,9 +336,9 @@
                 </div>
 
                 <!-- Double or Twin Room Y1B -->
-                <div class="room-card group cursor-pointer" data-category="double" data-capacity="2" data-price="96">
+                <div class="room-card group cursor-pointer tilt-hover" data-category="double" data-capacity="2" data-price="96" data-aos="slide-up" data-aos-delay="900">
                     <div class="overflow-hidden rounded-lg mb-6">
-                        <img src="assets/images/rooms/double-twin-y1b.jpg" alt="Double or Twin Room Y1B" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/rooms/room2.jpg" alt="Double or Twin Room Y1B" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-4 left-4 bg-teal-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                             Y1B
                         </div>
@@ -359,9 +363,9 @@
                 </div>
 
                 <!-- Twin Room Y3A -->
-                <div class="room-card group cursor-pointer" data-category="twin" data-capacity="2" data-price="97">
+                <div class="room-card group cursor-pointer tilt-hover" data-category="twin" data-capacity="2" data-price="97" data-aos="slide-up" data-aos-delay="1000">
                     <div class="overflow-hidden rounded-lg mb-6">
-                        <img src="assets/images/rooms/twin-room-y3a.jpg" alt="Twin Room Y3A" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/rooms/room3.jpg" alt="Twin Room Y3A" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                             Y3A
                         </div>
@@ -383,9 +387,9 @@
                 </div>
 
                 <!-- Double Room -->
-                <div class="room-card group cursor-pointer" data-category="double" data-capacity="2" data-price="89">
+                <div class="room-card group cursor-pointer tilt-hover" data-category="double" data-capacity="2" data-price="89" data-aos="slide-up" data-aos-delay="1100">
                     <div class="overflow-hidden rounded-lg mb-6">
-                        <img src="assets/images/rooms/double-room.jpg" alt="Double Room" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/rooms/room1.jpg" alt="Double Room" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                             Standard
                         </div>
@@ -407,9 +411,9 @@
                 </div>
 
                 <!-- Double Room B4 -->
-                <div class="room-card group cursor-pointer" data-category="double" data-capacity="2" data-price="92">
+                <div class="room-card group cursor-pointer tilt-hover" data-category="double" data-capacity="2" data-price="92" data-aos="slide-up" data-aos-delay="1200">
                     <div class="overflow-hidden rounded-lg mb-6">
-                        <img src="assets/images/rooms/double-room-b4.jpg" alt="Double Room B4" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/rooms/room2.jpg" alt="Double Room B4" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                             B4
                         </div>
@@ -431,9 +435,9 @@
                 </div>
 
                 <!-- Twin Room -->
-                <div class="room-card group cursor-pointer" data-category="twin" data-capacity="2" data-price="94">
+                <div class="room-card group cursor-pointer tilt-hover" data-category="twin" data-capacity="2" data-price="94" data-aos="slide-up" data-aos-delay="1300">
                     <div class="overflow-hidden rounded-lg mb-6">
-                        <img src="assets/images/rooms/twin-room.jpg" alt="Twin Room" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/rooms/room3.jpg" alt="Twin Room" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                             Standard
                         </div>
@@ -455,9 +459,9 @@
                 </div>
 
                 <!-- Double Room B7 -->
-                <div class="room-card group cursor-pointer" data-category="double" data-capacity="2" data-price="93">
+                <div class="room-card group cursor-pointer tilt-hover" data-category="double" data-capacity="2" data-price="93" data-aos="slide-up" data-aos-delay="1400">
                     <div class="overflow-hidden rounded-lg mb-6">
-                        <img src="assets/images/rooms/double-room-b7.jpg" alt="Double Room B7" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/rooms/room1.jpg" alt="Double Room B7" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                             B7
                         </div>
@@ -479,9 +483,9 @@
                 </div>
 
                 <!-- Double Room B8 -->
-                <div class="room-card group cursor-pointer" data-category="double" data-capacity="2" data-price="91">
+                <div class="room-card group cursor-pointer tilt-hover" data-category="double" data-capacity="2" data-price="91" data-aos="slide-up" data-aos-delay="1500">
                     <div class="overflow-hidden rounded-lg mb-6">
-                        <img src="assets/images/rooms/double-room-b8.jpg" alt="Double Room B8" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/rooms/room2.jpg" alt="Double Room B8" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                             B8
                         </div>
@@ -520,13 +524,13 @@
     <!-- Call to Action Section -->
     <section class="py-20 px-6 bg-deep-navy text-white">
         <div class="container mx-auto max-w-4xl text-center">
-            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Ready to Book Your Stay?</h2>
-            <p class="text-xl mb-8 opacity-90">Experience comfort and convenience at Lion's Rooms n Apartments</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-brushed-gold text-white px-8 py-3 text-lg font-medium rounded hover:bg-opacity-90 transition-all">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up" data-aos-delay="200">Ready to Book Your Stay?</h2>
+            <p class="text-xl mb-8 opacity-90" data-aos="fade-up" data-aos-delay="400">Experience comfort and convenience at Lion's Rooms n Apartments</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="zoom-in" data-aos-delay="600">
+                <button class="magnetic-btn bg-brushed-gold text-white px-8 py-3 text-lg font-medium rounded hover:bg-opacity-90 transition-all" data-aos="scale-bounce" data-aos-delay="700">
                     Check Availability
                 </button>
-                <a href="index.html#amenities" class="border border-white text-white px-8 py-3 text-lg font-medium rounded hover:bg-white hover:text-deep-navy transition-all">
+                <a href="index.html#amenities" class="magnetic-btn border border-white text-white px-8 py-3 text-lg font-medium rounded hover:bg-white hover:text-deep-navy transition-all" data-aos="scale-bounce" data-aos-delay="800">
                     View Amenities
                 </a>
             </div>
@@ -540,43 +544,43 @@
             <div class="container mx-auto max-w-7xl">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <!-- Hotel Info -->
-                    <div class="md:col-span-2">
-                        <h4 class="font-serif text-2xl font-bold mb-4">Lion's Rooms n Apartments</h4>
-                        <p class="text-gray-600 mb-4">Quality Accommodation • Great Amenities</p>
-                        <address class="text-gray-600 not-italic">
+                    <div class="md:col-span-2" data-aos="fade-right" data-aos-delay="200">
+                        <h4 class="font-serif text-2xl font-bold mb-4" data-aos="fade-up" data-aos-delay="300">Lion's Rooms n Apartments</h4>
+                        <p class="text-gray-600 mb-4" data-aos="fade-up" data-aos-delay="400">Quality Accommodation • Great Amenities</p>
+                        <address class="text-gray-600 not-italic" data-aos="fade-up" data-aos-delay="500">
                             Your Address Here<br>
                             City, Country<br>
                             Postal Code
                         </address>
-                        <div class="mt-4 space-y-1">
+                        <div class="mt-4 space-y-1" data-aos="fade-up" data-aos-delay="600">
                             <p class="text-gray-600">+XX XXX XXX XXXX</p>
                             <p class="text-gray-600">info@lionsrooms.com</p>
                         </div>
                     </div>
                     
                     <!-- Quick Links -->
-                    <div>
+                    <div data-aos="fade-up" data-aos-delay="400">
                         <h5 class="font-semibold mb-4">Quick Links</h5>
-                        <ul class="space-y-2 text-gray-600">
-                            <li><a href="rooms.html" class="hover:text-brushed-gold transition-colors">All Rooms</a></li>
-                            <li><a href="index.html#amenities" class="hover:text-brushed-gold transition-colors">Amenities</a></li>
-                            <li><a href="#" class="hover:text-brushed-gold transition-colors">Shared Kitchen</a></li>
-                            <li><a href="#" class="hover:text-brushed-gold transition-colors">Reception Services</a></li>
-                            <li><a href="#" class="hover:text-brushed-gold transition-colors">Contact Us</a></li>
+                        <ul class="space-y-2 text-gray-600 amenities-grid">
+                            <li class="cascade-item"><a href="rooms.html" class="hover:text-brushed-gold transition-colors">All Rooms</a></li>
+                            <li class="cascade-item"><a href="index.html#amenities" class="hover:text-brushed-gold transition-colors">Amenities</a></li>
+                            <li class="cascade-item"><a href="#" class="hover:text-brushed-gold transition-colors">Shared Kitchen</a></li>
+                            <li class="cascade-item"><a href="#" class="hover:text-brushed-gold transition-colors">Reception Services</a></li>
+                            <li class="cascade-item"><a href="#" class="hover:text-brushed-gold transition-colors">Contact Us</a></li>
                         </ul>
                     </div>
                     
                     <!-- Contact -->
-                    <div>
+                    <div data-aos="fade-left" data-aos-delay="600">
                         <h5 class="font-semibold mb-4">Contact</h5>
                         <div class="space-y-3">
-                            <p class="text-sm text-gray-600">Languages spoken:</p>
-                            <div class="flex space-x-2">
+                            <p class="text-sm text-gray-600" data-aos="fade-up" data-aos-delay="700">Languages spoken:</p>
+                            <div class="flex space-x-2" data-aos="scale-bounce" data-aos-delay="800">
                                 <span class="bg-sandy-beige text-deep-navy px-3 py-1 rounded-full text-sm">German</span>
                                 <span class="bg-sandy-beige text-deep-navy px-3 py-1 rounded-full text-sm">English</span>
                             </div>
                         </div>
-                        <button class="w-full mt-6 bg-brushed-gold text-white px-6 py-3 rounded font-medium hover:bg-opacity-90 transition-all">
+                        <button class="w-full mt-6 bg-brushed-gold text-white px-6 py-3 rounded font-medium hover:bg-opacity-90 transition-all magnetic-btn" data-aos="zoom-in" data-aos-delay="900">
                             Book Now
                         </button>
                     </div>
@@ -587,8 +591,8 @@
         <!-- Copyright -->
         <div class="py-6 px-6 border-t border-sandy-beige">
             <div class="container mx-auto max-w-7xl flex flex-col sm:flex-row justify-between items-center text-sm text-gray-600">
-                <p>&copy; 2024 Lion's Rooms n Apartments. All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 sm:mt-0">
+                <p data-aos="fade-right" data-aos-delay="200">&copy; 2024 Lion's Rooms n Apartments. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 sm:mt-0" data-aos="fade-left" data-aos-delay="400">
                     <a href="#" class="hover:text-brushed-gold transition-colors">Privacy Policy</a>
                     <a href="#" class="hover:text-brushed-gold transition-colors">Terms of Service</a>
                 </div>
@@ -597,6 +601,7 @@
     </footer>
 
     <!-- Custom JavaScript -->
+    <script src="assets/js/animations.js"></script>
     <script src="assets/js/rooms.js"></script>
     <script src="assets/js/main.js"></script>
 </body>

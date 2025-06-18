@@ -1,8 +1,274 @@
-/* Custom CSS for The Lion Hotel */
+/* Custom CSS for Lion's Rooms n Apartments - Modern Animation Framework */
 
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
+}
+
+/* ===== MODERN ANIMATION FRAMEWORK ===== */
+
+/* Animation base styles */
+[data-aos] {
+    pointer-events: none;
+}
+
+[data-aos].aos-animate {
+    pointer-events: auto;
+}
+
+/* Custom flying animations */
+@keyframes flyInLeft {
+    from {
+        transform: translateX(-100px) rotate(-5deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes flyInRight {
+    from {
+        transform: translateX(100px) rotate(5deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes flyInDiagonal {
+    from {
+        transform: translate(-50px, -50px) rotate(-10deg) scale(0.8);
+        opacity: 0;
+        filter: blur(5px);
+    }
+    to {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 1;
+        filter: blur(0px);
+    }
+}
+
+@keyframes zoomBlur {
+    from {
+        transform: scale(0.7);
+        filter: blur(10px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes textSplit {
+    from {
+        transform: translateY(50px) rotateX(90deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes magneticPull {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1.02);
+    }
+}
+
+/* Animation classes */
+.fly-in-left {
+    animation: flyInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.fly-in-right {
+    animation: flyInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.fly-in-diagonal {
+    animation: flyInDiagonal 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.zoom-blur {
+    animation: zoomBlur 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Split text animation */
+.text-split {
+    overflow: hidden;
+}
+
+.text-split .char {
+    display: inline-block;
+    animation: textSplit 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Stagger delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* 3D Transform effects */
+.transform-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+/* Magnetic button effect */
+.magnetic-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.magnetic-btn:hover {
+    animation: magneticPull 0.4s ease-out;
+    box-shadow: 0 20px 40px rgba(200, 169, 126, 0.4);
+}
+
+/* Parallax layers */
+.parallax-container {
+    overflow: hidden;
+}
+
+.parallax-slow {
+    transform: translateY(calc(var(--scroll-y, 0) * 0.3));
+}
+
+.parallax-fast {
+    transform: translateY(calc(var(--scroll-y, 0) * 0.8));
+}
+
+/* Tilt effect on hover */
+.tilt-hover {
+    transition: transform 0.3s ease;
+}
+
+.tilt-hover:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateZ(20px);
+}
+
+/* Text typewriter effect */
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typewriter 2s steps(40, end), blink 0.5s step-end infinite alternate;
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Cascade animation */
+.cascade-up {
+    animation: cascadeUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes cascadeUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Rotation entrance */
+.rotate-in {
+    animation: rotateIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes rotateIn {
+    from {
+        transform: rotate(-180deg) scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Scale bounce effect */
+.scale-bounce {
+    animation: scaleBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes scaleBounce {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Blur fade effect */
+.blur-fade {
+    animation: blurFade 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes blurFade {
+    from {
+        filter: blur(20px);
+        opacity: 0;
+    }
+    to {
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+/* Performance optimizations */
+.will-animate {
+    will-change: transform, opacity, filter;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .parallax-slow,
+    .parallax-fast {
+        transform: none !important;
+    }
+    
+    .tilt-hover:hover {
+        transform: none !important;
+    }
 }
 
 /* Custom color variables */
@@ -19,6 +285,38 @@ html {
     backdrop-filter: blur(10px);
 }
 
+/* Navigation stability fixes */
+#navbar {
+    pointer-events: auto;
+    user-select: none;
+}
+
+#navbar .container {
+    pointer-events: auto;
+}
+
+#navbar button {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+#navbar a {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* Prevent unwanted interactions on empty navbar space */
+#navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
 /* Hero section animations */
 @keyframes fadeInUp {
     from {
@@ -33,6 +331,44 @@ html {
 
 .hero-content {
     animation: fadeInUp 1s ease-out;
+}
+
+/* Ken Burns effect for hero background - optimized */
+@keyframes kenBurns {
+    0% {
+        transform: scale(1);
+        transform-origin: center center;
+    }
+    100% {
+        transform: scale(1.05);
+        transform-origin: center center;
+    }
+}
+
+.hero-bg-image {
+    animation: kenBurns 20s ease-in-out infinite alternate;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Hero background container stability */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
 }
 
 /* Hover effects for room cards */

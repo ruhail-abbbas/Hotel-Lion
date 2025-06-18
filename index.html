@@ -21,6 +21,10 @@
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -86,15 +90,15 @@
     <!-- Hero Section -->
     <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
         <!-- Background Video/Image -->
-        <div class="absolute inset-0 z-0">
-            <img src="assets/images/hero/exterior.jpg" alt="Lion's Rooms n Apartments exterior view" class="w-full h-full object-cover">
+        <div class="absolute inset-0 z-0 hero-background">
+            <img src="assets/images/hero/stock.jpg" alt="Lion's Rooms n Apartments exterior view" class="w-full h-full object-cover hero-bg-image">
             <div class="absolute inset-0 bg-black bg-opacity-30"></div>
         </div>
         
         <!-- Hero Content -->
-        <div class="relative z-10 text-center text-white px-6">
+        <div class="relative z-10 text-center text-white px-6" data-aos="fade-up" data-aos-duration="1000">
             <!-- Star Rating -->
-            <div class="flex justify-center mb-4">
+            <div class="flex justify-center mb-4" data-aos="zoom-in" data-aos-delay="200">
                 <div class="flex space-x-1">
                     <span class="text-brushed-gold text-xl">★</span>
                     <span class="text-brushed-gold text-xl">★</span>
@@ -105,17 +109,17 @@
             </div>
             
             <!-- Hotel Name -->
-            <h1 class="font-serif text-6xl md:text-8xl font-bold mb-4">Lion's Rooms<br><span class="text-4xl md:text-5xl">n Apartments</span></h1>
-            <p class="text-xl md:text-2xl font-light mb-8 tracking-wide">Quality Accommodation • Great Amenities</p>
+            <h1 class="hero-title font-serif text-6xl md:text-8xl font-bold mb-4" data-aos="fade-up" data-aos-delay="400">Lion's Rooms<br><span class="text-4xl md:text-5xl"> n Apartments</span></h1>
+            <p class="text-xl md:text-2xl font-light mb-8 tracking-wide" data-aos="fade-up" data-aos-delay="600">Quality Accommodation • Great Amenities</p>
             
             <!-- CTA Button -->
-            <button class="bg-brushed-gold text-white px-8 py-3 text-lg font-medium rounded hover:bg-opacity-90 transition-all">
+            <button class="magnetic-btn bg-brushed-gold text-white px-8 py-3 text-lg font-medium rounded hover:bg-opacity-90 transition-all" data-aos="zoom-in" data-aos-delay="800">
                 BOOK NOW
             </button>
         </div>
         
         <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce" data-aos="fade-up" data-aos-delay="1000">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
             </svg>
@@ -123,12 +127,12 @@
     </section>
 
     <!-- Introduction Section -->
-    <section id="about" class="py-20 px-6">
+    <section id="about" class="py-20 px-6" data-animation="section-enter">
         <div class="container mx-auto max-w-7xl">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <!-- Left Column - Text Content -->
-                <div class="space-y-8">
-                    <div class="flex items-center space-x-2 mb-4">
+                <div class="space-y-8" data-aos="slide-right" data-aos-duration="1000">
+                    <div class="flex items-center space-x-2 mb-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="flex space-x-1">
                             <span class="text-brushed-gold text-sm">★</span>
                             <span class="text-brushed-gold text-sm">★</span>
@@ -139,21 +143,21 @@
                         <span class="text-sm text-gray-600">8.3 AMENITIES RATING</span>
                     </div>
                     
-                    <h2 class="font-serif text-5xl md:text-6xl font-bold leading-tight">
+                    <h2 class="font-serif text-5xl md:text-6xl font-bold leading-tight" data-aos="fade-up" data-aos-delay="400">
                         Lion's Rooms<br>
                         <span class="text-brushed-gold">n Apartments</span>
                     </h2>
                     
-                    <p class="text-lg text-gray-700 leading-relaxed">
+                    <p class="text-lg text-gray-700 leading-relaxed" data-aos="fade-up" data-aos-delay="600">
                         Our modern apartment-style accommodations offer comfortable rooms and apartments with excellent amenities. Experience quality accommodation with personalized service, convenient facilities, and all the comforts you need for a memorable stay.
                     </p>
                     
                     <!-- Features List -->
-                    <div class="space-y-4">
+                    <div class="space-y-4 features-list" data-aos="fade-up" data-aos-delay="800">
                         <h3 class="font-semibold text-lg mb-4">Most Popular Features:</h3>
                         <ul class="space-y-3">
-                            <li class="flex items-center space-x-3">
-                                <div class="w-2 h-2 bg-brushed-gold rounded-full"></div>
+                            <li class="flex items-center space-x-3 feature-item">
+                                <div class="w-2 h-2 bg-brushed-gold rounded-full" data-aos="scale-bounce" data-aos-delay="900"></div>
                                 <span>Free WiFi throughout the property</span>
                             </li>
                             <li class="flex items-center space-x-3">
@@ -177,13 +181,13 @@
                 </div>
                 
                 <!-- Right Column - Image Gallery -->
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-2 gap-4" data-aos="slide-left" data-aos-duration="1000">
                     <div class="space-y-4">
-                        <img src="assets/images/general/lobby-view.jpg" alt="Hotel lobby with ocean view" class="w-full h-64 object-cover rounded-lg">
-                        <img src="assets/images/general/infinity-pool.jpg" alt="Infinity pool at sunset" class="w-full h-48 object-cover rounded-lg">
+                        <img src="assets/images/general/lobby.jpg" alt="Hotel lobby with ocean view" class="w-full h-64 object-cover rounded-lg tilt-hover" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="assets/images/general/pool.jpg" alt="Infinity pool at sunset" class="w-full h-48 object-cover rounded-lg tilt-hover" data-aos="zoom-in" data-aos-delay="400">
                     </div>
                     <div class="mt-8">
-                        <img src="assets/images/general/spa-treatment.jpg" alt="Spa treatment room" class="w-full h-80 object-cover rounded-lg">
+                        <img src="assets/images/general/spa.jpg" alt="Spa treatment room" class="w-full h-80 object-cover rounded-lg tilt-hover" data-aos="zoom-in" data-aos-delay="600">
                     </div>
                 </div>
             </div>
@@ -202,7 +206,7 @@
                 <!-- Ocean Suite -->
                 <div class="room-card group cursor-pointer">
                     <div class="overflow-hidden rounded-lg mb-6">
-                        <img src="assets/images/rooms/417061034.jpg" alt="Ocean Suite with panoramic sea view" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/rooms/room1.jpg" alt="Ocean Suite with panoramic sea view" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700">
                     </div>
                     <div class="space-y-3">
                         <h3 class="font-serif text-3xl font-semibold">SINGLE ROOM</h3>
@@ -218,7 +222,7 @@
                 <!-- Family Room -->
                 <div class="room-card group cursor-pointer">
                     <div class="overflow-hidden rounded-lg mb-6">
-                        <img src="assets/images/rooms/446994294.jpg" alt="Family room with comfortable amenities" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="assets/images/rooms/room2.jpg" alt="Family room with comfortable amenities" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700">
                     </div>
                     <div class="space-y-3">
                         <h3 class="font-serif text-3xl font-semibold">FAMILY ROOM</h3>
@@ -238,17 +242,17 @@
     <section id="amenities" class="py-20 px-6 bg-creamy-white">
         <div class="container mx-auto max-w-7xl">
             <div class="text-center mb-16">
-                <h2 class="font-serif text-5xl md:text-6xl font-bold mb-4">Great Amenities</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">8.3 points rating - Experience comfort and convenience with our excellent facilities and services.</p>
+                <h2 class="font-serif text-5xl md:text-6xl font-bold mb-4" data-aos="fade-up" data-aos-duration="800">Great Amenities</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">8.3 points rating - Experience comfort and convenience with our excellent facilities and services.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 amenities-grid">
                 <!-- Most Popular Features -->
-                <div class="bg-white rounded-lg p-8 shadow-sm">
+                <div class="bg-white rounded-lg p-8 shadow-sm tilt-hover" data-aos="zoom-in" data-aos-delay="400">
                     <h3 class="font-serif text-2xl font-semibold mb-6 text-brushed-gold">Most Popular Features</h3>
                     <ul class="space-y-4">
-                        <li class="flex items-center space-x-3">
-                            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                        <li class="flex items-center space-x-3 amenity-item">
+                            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" data-aos="rotate-in" data-aos-delay="500">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                             </svg>
                             <span>WiFi included</span>
@@ -287,7 +291,7 @@
                 </div>
                 
                 <!-- Room Facilities -->
-                <div class="bg-white rounded-lg p-8 shadow-sm">
+                <div class="bg-white rounded-lg p-8 shadow-sm tilt-hover" data-aos="zoom-in" data-aos-delay="600">
                     <h3 class="font-serif text-2xl font-semibold mb-6 text-brushed-gold">Room Facilities</h3>
                     <ul class="space-y-4">
                         <li class="flex items-center space-x-3">
@@ -324,7 +328,7 @@
                 </div>
                 
                 <!-- Services -->
-                <div class="bg-white rounded-lg p-8 shadow-sm">
+                <div class="bg-white rounded-lg p-8 shadow-sm tilt-hover" data-aos="zoom-in" data-aos-delay="800">
                     <h3 class="font-serif text-2xl font-semibold mb-6 text-brushed-gold">Reception Services</h3>
                     <ul class="space-y-4">
                         <li class="flex items-center space-x-3">
@@ -366,31 +370,31 @@
     <section class="py-20 px-6 bg-deep-navy text-white">
         <div class="container mx-auto max-w-4xl text-center">
             <div class="mb-8">
-                <div class="flex justify-center space-x-1 mb-6">
-                    <span class="text-brushed-gold text-2xl">★</span>
-                    <span class="text-brushed-gold text-2xl">★</span>
-                    <span class="text-brushed-gold text-2xl">★</span>
-                    <span class="text-brushed-gold text-2xl">★</span>
-                    <span class="text-brushed-gold text-2xl">★</span>
+                <div class="flex justify-center space-x-1 mb-6" data-aos="zoom-in" data-aos-delay="200">
+                    <span class="text-brushed-gold text-2xl" data-aos="rotate-in" data-aos-delay="300">★</span>
+                    <span class="text-brushed-gold text-2xl" data-aos="rotate-in" data-aos-delay="350">★</span>
+                    <span class="text-brushed-gold text-2xl" data-aos="rotate-in" data-aos-delay="400">★</span>
+                    <span class="text-brushed-gold text-2xl" data-aos="rotate-in" data-aos-delay="450">★</span>
+                    <span class="text-brushed-gold text-2xl" data-aos="rotate-in" data-aos-delay="500">★</span>
                 </div>
-                <blockquote class="font-serif text-3xl md:text-4xl font-light leading-relaxed mb-8">
-                    "The Lion Hotel is more than a destination—it's a transformative experience. The seamless blend of luxury and nature created the perfect sanctuary for our anniversary celebration."
+                <blockquote class="font-serif text-3xl md:text-4xl font-light leading-relaxed mb-8" data-aos="fade-up" data-aos-delay="600">
+                    "Lion's Rooms n Apartments exceeded our expectations with exceptional service and modern amenities. The perfect blend of comfort and convenience made our stay truly memorable."
                 </blockquote>
-                <div class="text-lg">
+                <div class="text-lg" data-aos="fade-up" data-aos-delay="800">
                     <p class="font-medium mb-1">Sarah & Michael Chen</p>
                     <p class="text-sandy-beige">San Francisco, California</p>
                 </div>
             </div>
             
             <!-- Awards -->
-            <div class="flex justify-center space-x-8 opacity-70">
-                <div class="text-center">
-                    <div class="text-brushed-gold text-sm mb-1">CONDE NAST</div>
-                    <div class="text-xs">TOP 100 HOTELS</div>
+            <div class="flex justify-center space-x-8 opacity-70" data-aos="fade-up" data-aos-delay="1000">
+                <div class="text-center" data-aos="scale-bounce" data-aos-delay="1100">
+                    <div class="text-brushed-gold text-sm mb-1">EXCELLENT</div>
+                    <div class="text-xs">8.3 RATING</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-brushed-gold text-sm mb-1">TRAVEL + LEISURE</div>
-                    <div class="text-xs">WORLD'S BEST AWARD</div>
+                <div class="text-center" data-aos="scale-bounce" data-aos-delay="1200">
+                    <div class="text-brushed-gold text-sm mb-1">QUALITY</div>
+                    <div class="text-xs">ACCOMMODATION</div>
                 </div>
             </div>
         </div>
@@ -401,11 +405,11 @@
         <!-- Newsletter Section -->
         <div class="py-16 px-6 border-b border-sandy-beige">
             <div class="container mx-auto max-w-4xl text-center">
-                <h3 class="font-serif text-3xl font-semibold mb-4">Stay Connected</h3>
-                <p class="text-gray-600 mb-8">Receive exclusive offers and updates from Lion's Rooms n Apartments</p>
-                <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <h3 class="font-serif text-3xl font-semibold mb-4" data-aos="fade-up" data-aos-delay="200">Stay Connected</h3>
+                <p class="text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="400">Receive exclusive offers and updates from Lion's Rooms n Apartments</p>
+                <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" data-aos="zoom-in" data-aos-delay="600">
                     <input type="email" placeholder="Your email address" class="flex-1 px-4 py-3 border border-sandy-beige rounded focus:outline-none focus:border-brushed-gold">
-                    <button type="submit" class="bg-brushed-gold text-white px-6 py-3 rounded font-medium hover:bg-opacity-90 transition-all">
+                    <button type="submit" class="magnetic-btn bg-brushed-gold text-white px-6 py-3 rounded font-medium hover:bg-opacity-90 transition-all">
                         Subscribe
                     </button>
                 </form>
@@ -484,6 +488,7 @@
     </footer>
 
     <!-- Custom JavaScript -->
+    <script src="assets/js/animations.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
