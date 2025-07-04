@@ -110,7 +110,7 @@ RUN npm install --only=production
 COPY --from=builder /usr/src/app/dist ./dist
 
 # Expose port and run the app
-EXPOSE 3001
+EXPOSE 8000
 CMD ["node", "dist/main"]
 ```
 

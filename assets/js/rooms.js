@@ -118,8 +118,12 @@ function initRoomSorting() {
     });
 }
 
-// Booking button functionality
+// Booking button functionality for room-specific buttons
 function initBookingButtons() {
+    // Configuration for booking frontend
+    const BOOKING_FRONTEND_URL = 'http://localhost:3000';
+    const HOTEL_UUID = '15d0da75-0c13-4578-82f5-355632c17ebc';
+    
     const bookingButtons = document.querySelectorAll('.book-room-btn');
     
     bookingButtons.forEach(button => {
@@ -127,68 +131,77 @@ function initBookingButtons() {
             e.preventDefault();
             const roomName = button.getAttribute('data-room');
             
-            // Simulate booking process
+            // Show loading state
             const originalText = button.textContent;
-            button.textContent = 'Booking...';
+            button.textContent = '🔄 Redirecting...';
             button.disabled = true;
+            button.style.transform = 'scale(0.95)';
             
             setTimeout(() => {
-                // In a real application, this would open a booking modal or redirect
-                showBookingModal(roomName);
+                // Create booking URL with default parameters
+                const today = new Date();
+                const tomorrow = new Date(today);
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                const dayAfter = new Date(today);
+                dayAfter.setDate(dayAfter.getDate() + 3);
                 
-                button.textContent = originalText;
-                button.disabled = false;
-            }, 1500);
+                const checkIn = tomorrow.toISOString().split('T')[0];
+                const checkOut = dayAfter.toISOString().split('T')[0];
+                
+                // Create booking URL with room preference (could be used for filtering)
+                const bookingUrl = `${BOOKING_FRONTEND_URL}/search?hotel=${HOTEL_UUID}&check_in=${checkIn}&check_out=${checkOut}&guests=2&infants=0&room=${encodeURIComponent(roomName)}`;
+                
+                // Show success notification with room name
+                showRoomBookingNotification(roomName);
+                
+                // Redirect to booking frontend
+                window.open(bookingUrl, '_blank');
+                
+                // Reset button after a short delay
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                    button.style.transform = 'scale(1)';
+                }, 1500);
+            }, 800);
         });
     });
 }
 
-// Show booking modal (simulation)
-function showBookingModal(roomName) {
-    const modal = document.createElement('div');
-    modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4';
-    modal.innerHTML = `
-        <div class="bg-white rounded-lg max-w-md w-full p-8 relative">
-            <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="this.closest('.fixed').remove()">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+// Show room-specific booking notification
+function showRoomBookingNotification(roomName) {
+    const notification = document.createElement('div');
+    notification.className = 'fixed top-4 right-4 p-6 rounded-lg text-white z-50 transform translate-x-full transition-all duration-300 shadow-xl backdrop-blur-sm bg-gradient-to-r from-green-500 to-blue-500 border border-green-400 max-w-sm';
+    
+    notification.innerHTML = `
+        <div class="flex items-start gap-3">
+            <div class="flex-shrink-0">
+                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
-            </button>
-            <div class="text-center">
-                <div class="mb-4">
-                    <svg class="w-12 h-12 text-brushed-gold mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Booking Request</h3>
-                <p class="text-gray-600 mb-6">You've selected <strong>${roomName}</strong>. In a real booking system, this would redirect you to our reservation platform.</p>
-                <div class="space-y-3">
-                    <button class="w-full bg-brushed-gold text-white px-6 py-3 rounded font-medium hover:bg-opacity-90 transition-all" onclick="this.closest('.fixed').remove()">
-                        Continue to Booking
-                    </button>
-                    <button class="w-full border border-gray-300 text-gray-700 px-6 py-3 rounded font-medium hover:bg-gray-50 transition-all" onclick="this.closest('.fixed').remove()">
-                        Cancel
-                    </button>
-                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-1">🏨 Opening Booking System</h4>
+                <p class="text-sm opacity-90">Redirecting you to book <strong>${roomName}</strong></p>
+                <p class="text-xs opacity-75 mt-1">Hotel Lion Reservation Platform</p>
             </div>
         </div>
     `;
     
-    document.body.appendChild(modal);
+    document.body.appendChild(notification);
     
-    // Remove modal when clicking outside
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.remove();
-        }
-    });
-    
-    // Remove modal after 10 seconds
     setTimeout(() => {
-        if (document.body.contains(modal)) {
-            modal.remove();
-        }
-    }, 10000);
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            if (document.body.contains(notification)) {
+                document.body.removeChild(notification);
+            }
+        }, 300);
+    }, 4000);
 }
 
 // Room card animations

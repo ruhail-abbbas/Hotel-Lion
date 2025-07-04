@@ -189,13 +189,25 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-// Show notification
+// Show notification with enhanced styling
 function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
-    notification.className = `fixed top-4 right-4 p-4 rounded-lg text-white z-50 transform translate-x-full transition-transform duration-300 ${
-        type === 'error' ? 'bg-red-500' : type === 'success' ? 'bg-green-500' : 'bg-blue-500'
+    const icons = {
+        success: '✅',
+        error: '❌',
+        info: 'ℹ️'
+    };
+    
+    notification.className = `fixed top-4 right-4 p-4 rounded-lg text-white z-50 transform translate-x-full transition-all duration-300 shadow-lg backdrop-blur-sm ${
+        type === 'error' ? 'bg-red-500' : type === 'success' ? 'bg-green-500 border border-green-400' : 'bg-blue-500 border border-blue-400'
     }`;
-    notification.textContent = message;
+    
+    notification.innerHTML = `
+        <div class="flex items-center gap-2">
+            <span class="text-lg">${icons[type] || icons.info}</span>
+            <span class="font-medium">${message}</span>
+        </div>
+    `;
     
     document.body.appendChild(notification);
     
@@ -206,9 +218,11 @@ function showNotification(message, type = 'info') {
     setTimeout(() => {
         notification.style.transform = 'translateX(100%)';
         setTimeout(() => {
-            document.body.removeChild(notification);
+            if (document.body.contains(notification)) {
+                document.body.removeChild(notification);
+            }
         }, 300);
-    }, 3000);
+    }, 4000);
 }
 
 // Lazy loading for images
@@ -274,7 +288,11 @@ function updateParallaxEffect() {
 
 // Booking button functionality
 function initBookingButtons() {
-    // Find booking buttons by specific text content only, avoid class-based selection
+    // Configuration for booking frontend
+    const BOOKING_FRONTEND_URL = 'http://localhost:3000';
+    const HOTEL_UUID = '15d0da75-0c13-4578-82f5-355632c17ebc';
+    
+    // Find booking buttons by specific text content, avoid class-based selection
     const bookingButtons = Array.from(document.querySelectorAll('button')).filter(btn => {
         const text = btn.textContent.trim();
         return (text.includes('BOOK') || text.includes('Book')) && 
@@ -282,35 +300,59 @@ function initBookingButtons() {
                !btn.closest('nav'); // Exclude navigation buttons
     });
     
-    // Also include explicit booking button classes
+    // Include all booking button classes
+    const navBookingButtons = document.querySelectorAll('.booking-btn-nav');
+    const heroBookingButtons = document.querySelectorAll('.booking-btn-hero');
+    const ctaBookingButtons = document.querySelectorAll('.booking-btn-cta');
+    const footerBookingButtons = document.querySelectorAll('.booking-btn-footer');
     const explicitBookingBtns = document.querySelectorAll('.book-room-btn, .magnetic-btn');
     
-    // Combine both collections
-    const combinedButtons = [...new Set([...bookingButtons, ...explicitBookingBtns])];
+    // Combine all booking buttons
+    const allBookingButtons = [...bookingButtons, ...navBookingButtons, ...heroBookingButtons, ...ctaBookingButtons, ...footerBookingButtons, ...explicitBookingBtns];
+    const uniqueButtons = [...new Set(allBookingButtons)];
     
-    combinedButtons.forEach(button => {
-        // Skip filter buttons and navigation buttons
-        if (button.classList.contains('filter-btn') || button.closest('nav')) return;
+    uniqueButtons.forEach(button => {
+        // Skip filter buttons
+        if (button.classList.contains('filter-btn')) return;
         
         button.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
             
-            // Simulate booking process
+            // Show loading state
             const originalText = button.textContent;
-            
-            button.textContent = 'Loading...';
+            button.textContent = 'Redirecting...';
             button.disabled = true;
             
+            // Add subtle animation
+            button.style.transform = 'scale(0.95)';
+            
             setTimeout(() => {
-                // In a real application, this would redirect to booking system
-                showNotification('Redirecting to booking system...', 'info');
+                // Create booking URL with default parameters
+                const today = new Date();
+                const tomorrow = new Date(today);
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                const dayAfter = new Date(today);
+                dayAfter.setDate(dayAfter.getDate() + 3);
                 
+                const checkIn = tomorrow.toISOString().split('T')[0];
+                const checkOut = dayAfter.toISOString().split('T')[0];
+                
+                const bookingUrl = `${BOOKING_FRONTEND_URL}/search?hotel=${HOTEL_UUID}&check_in=${checkIn}&check_out=${checkOut}&guests=2&infants=0`;
+                
+                // Show success notification
+                showNotification('🏨 Redirecting to Hotel Lion booking system...', 'success');
+                
+                // Redirect to booking frontend
+                window.open(bookingUrl, '_blank');
+                
+                // Reset button after a short delay
                 setTimeout(() => {
                     button.textContent = originalText;
                     button.disabled = false;
-                }, 2000);
-            }, 1000);
+                    button.style.transform = 'scale(1)';
+                }, 1500);
+            }, 800);
         });
     });
 }
